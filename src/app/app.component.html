@@ -1,0 +1,17 @@
+<div class="flex h-screen w-screen">
+  <!-- Sidebar -->
+  <div class="bg-[#13599B] w-72 text-center text-white flex flex-col">
+    <shared-sidebar></shared-sidebar>
+  </div>
+
+  <!-- Navbar y contenido principal -->
+  <div class="flex-grow flex flex-col">
+    <!-- Navbar / barra superior -->
+
+    <!-- Contenido principal -->
+    <div class="flex-1 bg-white overflow-y-auto ">
+      <!-- Dependiendo de la ruta, renderiza el componente correspondiente -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

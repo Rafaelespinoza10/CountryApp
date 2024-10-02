@@ -1,0 +1,78 @@
+<div
+  *ngIf="countries.length === 0; else table" class="bg-orange-100 border-l-4 border-orange-500 text-orange-600 p-4 container mx-auto" role="alert"
+>
+  <p class="font-bold"> Not Found</p>
+  <p>No countries found in the data base.</p>
+</div>
+
+<ng-template #table>
+      <div class="relative overflow-x-auto shadow-md sm:rounded-lg container max-auto ml-10">
+        <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+          <thead class="text-md font-sans text-gray-800  uppercase  bg-[#50b6ff] border border-gray-100 rounded-xl text-center shadow ">
+            <tr>
+              <th scope="col" class="px-6 py-3">
+                #
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Flag
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Name
+              </th>
+              <th scope="col" class="px-6 py-3">
+                  Capital
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Population
+              </th>
+
+              <th scope="col" class="px-6 py-3">
+                Continent
+              </th>
+              <th scope="col" class="px-6 py-3 font-bold">
+                  <span>Actions</span>
+              </th>
+          </tr>
+          </thead>
+          <tbody
+            *ngFor="let country of countries; let i = index"
+          >
+          <tr class="bg-white border-b">
+            <th class=" text-xl px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-center">
+              {{i + 1 }}
+            </th>
+
+            <td class="px-6 py-4 flex items-center justify-center">
+              <img [src]="country.flags.png" [alt]="country.flags.alt" width="30" height="30">
+            </td>
+
+            <td class="px-6 py-4 text-center font-medium text-xl">
+                {{country.name.common}}
+            </td>
+
+            <td class="px-6 py-4 text-center font-medium text-xl">
+                {{country.capital}}
+            </td>
+
+            <td class="px-6 py-4 text-center font-medium text-xl">
+                {{country.population | number}}
+            </td>
+
+            <td class="px-6 py-4 text-center font-medium text-xl">
+              {{country.continents}}
+            </td>
+
+            <td class="text-blue-600 text-xl font-sans font-semibold underline text-center">
+              <a
+                [routerLink]="['/countries/by', country.cca3]"
+              >
+                View More
+              </a>
+            </td>
+          </tr>
+
+          </tbody>
+        </table>
+
+      </div>
+</ng-template>

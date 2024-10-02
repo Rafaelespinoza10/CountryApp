@@ -1,0 +1,10 @@
+<app-nav-bar [expression]="expression"></app-nav-bar>
+<shared-search-box
+    [placeholder]="placeholder"
+    (onValue)="searchByCountrie($event)"
+    ></shared-search-box>
+
+
+<shared-table
+  [countries]="countries"
+></shared-table>
